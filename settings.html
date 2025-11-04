@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Settings - Download</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
+    <h1 class="title">🎓 Alumni Portal</h1>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+  </header>
+
+  <nav id="sidebar" class="sidebar visible">
+    <!-- ✅ Sidebar banner image -->
+    <div class="sidebar-banner">
+      <img src="image.png" alt="Sidebar Banner">
+    </div>
+
+    <div class="sidebar-head"></div>
+    <a href="index.html" class="nav-link">🔎 Search</a>
+    <a href="add.html" class="nav-link">➕ Add (Bulk)</a>
+    <a href="settings.html" class="nav-link">⬇️ Download</a>
+    <button id="closeSidebar" class="close-sidebar">✕</button>
+  </nav>
+
+  <main class="main">
+    <section class="download-panel">
+      <h2>Download Alumni Data</h2>
+      <div class="form-row">
+        <input id="downloadId" type="number" placeholder="Enter Alumni ID">
+        <button id="downloadJsonBtn">Download JSON</button>
+        <button id="downloadPdfBtn">Download PDF</button>
+      </div>
+      <div id="downloadStatus" class="status"></div>
+    </section>
+    <footer class="footer">
+      <p>© 2025 Alumni Portal | Built by GOPALA KRISHNA H K</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('downloadJsonBtn').addEventListener('click', ()=>downloadById('json'));
+    document.getElementById('downloadPdfBtn').addEventListener('click', ()=>downloadById('pdf'));
+  </script>
+</body>
+</html>

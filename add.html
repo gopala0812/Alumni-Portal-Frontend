@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Add Alumni - Bulk Upload</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+ <header class="topbar">
+    <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
+    <h1 class="title">🎓 Alumni Portal</h1>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+  </header>
+
+  <nav id="sidebar" class="sidebar visible">
+    <!-- ✅ Sidebar banner image -->
+    <div class="sidebar-banner">
+      <img src="image.png" alt="Sidebar Banner">
+    </div>
+
+    <div class="sidebar-head"></div>
+    <a href="index.html" class="nav-link">🔎 Search</a>
+    <a href="add.html" class="nav-link">➕ Add (Bulk)</a>
+    <a href="settings.html" class="nav-link">⬇️ Download</a>
+    <button id="closeSidebar" class="close-sidebar">✕</button>
+  </nav>
+
+  <main class="main">
+    <section class="upload-panel">
+      <div class="upload-block">
+        <h3>Upload JSON</h3>
+        <input id="jsonFile" type="file" accept=".json">
+        <button id="uploadJsonBtn">Upload JSON</button>
+      </div>
+
+      <div class="upload-block">
+        <h3>Upload Excel (XLSX)</h3>
+        <input id="excelFile" type="file" accept=".xlsx,.xls">
+        <button id="uploadExcelBtn">Upload Excel</button>
+      </div>
+
+      <div id="addStatus" class="status"></div>
+    </section>
+    <footer class="footer">
+      <p>© 2025 Alumni Portal | Built by GOPALA KRISHNA H K</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('uploadJsonBtn').addEventListener('click', uploadJsonFile);
+    document.getElementById('uploadExcelBtn').addEventListener('click', uploadExcelFile);
+  </script>
+</body>
+</html>

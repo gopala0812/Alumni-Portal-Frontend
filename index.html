@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Search - Alumni Search Engine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
+    <h1 class="title">🎓 Alumni Portal</h1>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌓</button>
+  </header>
+
+  <nav id="sidebar" class="sidebar visible">
+    <!-- ✅ Sidebar banner image -->
+    <div class="sidebar-banner">
+      <img src="image.png" alt="Sidebar Banner">
+    </div>
+
+    <div class="sidebar-head"></div>
+    <a href="index.html" class="nav-link">🔎 Search</a>
+    <a href="add.html" class="nav-link">➕ Add (Bulk)</a>
+    <a href="settings.html" class="nav-link">⬇️ Download</a>
+    <button id="closeSidebar" class="close-sidebar">✕</button>
+  </nav>
+
+  <main class="main">
+    <section class="search-panel">
+      <h2>Search Alumni</h2>
+
+      <div class="form-row">
+        <input id="s_id" type="number" placeholder="ID">
+        <input id="s_name" type="text" placeholder="Name (partial allowed)">
+        <input id="s_department" type="text" placeholder="Department">
+        <input id="s_year" type="number" placeholder="Batch Year">
+        <input id="s_company" type="text" placeholder="Company">
+        <input id="s_location" type="text" placeholder="Location">
+      </div>
+
+      <div id="searchStatus" class="status"></div>
+
+      <div id="results" class="results">
+        <table id="resultsTable" class="results-table hidden" aria-live="polite">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Year</th>
+              <th>Company</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Footer -->
+    <footer class="footer">
+      <p>© 2025 Alumni Portal | Built by GOPALA KRISHNA H K</p>
+    </footer>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button id="modalClose" class="modal-close">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    ['s_id','s_name','s_department','s_year','s_company','s_location'].forEach(id=>{
+      const el = document.getElementById(id);
+      el?.addEventListener('input', async ()=>{ await searchPageSearch(); });
+      el?.addEventListener('keyup', (e)=>{ if(e.key === 'Enter') searchPageSearch(); });
+    });
+  </script>
+</body>
+</html>
